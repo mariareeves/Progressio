@@ -28,7 +28,7 @@ public class StudentServiceImpl implements StudentService {
         List<String> response = new ArrayList<>();
         Student student = new Student(studentDto);
         studentRepository.saveAndFlush(student);
-        response.add("Student added successfully.");
+        response.add("http://localhost:8080/home.html");
         return response;
     }
 
@@ -39,7 +39,7 @@ public class StudentServiceImpl implements StudentService {
         Optional<Student> studentOptional = studentRepository.findByUsername(studentDto.getUsername());
         if(studentOptional.isPresent()){
             if(passwordEncoder.matches(studentDto.getPassword(), studentOptional.get().getPassword())){
-                response.add("User login successful.");
+                response.add("http://localhost:8080/home.html");
                 response.add(String.valueOf(studentOptional.get().getId()));
             } else {
                 response.add("Username or password incorrect.");

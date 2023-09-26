@@ -14,7 +14,7 @@ public interface GoalService {
 
     //update a goal
     @Transactional
-    void updateGoal(GoalDto goalDto, List<CourseDto> courseDtoList);
+    void updateGoal(GoalDto goalDto);
 
     //method to convert course set
     default Course convertCourseDtoToEntity(CourseDto courseDto) {

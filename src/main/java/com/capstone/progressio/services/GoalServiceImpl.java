@@ -37,22 +37,27 @@ public class GoalServiceImpl implements GoalService {
     //update a goal
     @Override
     @Transactional
-    public void updateGoal(GoalDto goalDto, List<CourseDto> courseDtoList) {
+    public void updateGoal(GoalDto goalDto) {
+        if(goalDto.getId() == null){
+            System.out.println("Goal Id does not exist.");
+            return;
+        }
         Optional<Goal> goalOptional = goalRepository.findById(goalDto.getId());
         goalOptional.ifPresent(goal -> {
             goal.setGoalsDescription(goalDto.getGoalsDescription());
             goal.setInitialDate(goalDto.getInitialDate());
             goal.setFinalDate(goalDto.getFinalDate());
 
-            // Convert CourseDto objects to Course entities
-            Set<Course> courses = new HashSet<>();
-            for (CourseDto courseDto : courseDtoList) { // Change the variable name here
-                Course course = convertCourseDtoToEntity(courseDto);
-                courses.add(course);
-            }
-
-            // Update courseSet
-            goal.setCourseSet(courses);
+//            // Convert CourseDto objects to Course entities
+//            Set<Course> courses = new HashSet<>();
+//            for (CourseDto courseDto : courseDtoList) {
+//                Course course = convertCourseDtoToEntity(courseDto);
+//                System.out.println("linha 54" + courseDto.getCourseName());
+//                courses.add(course);
+//            }
+//
+//            // Update courseSet
+//            goal.setCourseSet(courses);
         });
     }
 

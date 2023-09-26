@@ -28,8 +28,8 @@ public class GoalController {
 
     //update a goal
     @PutMapping
-    public void updateGoal(@RequestBody GoalDto goalDto, @RequestBody List<CourseDto> courseDtoList){
-        goalService.updateGoal(goalDto, courseDtoList);
+    public void updateGoal(@RequestBody GoalDto goalDto){
+        goalService.updateGoal(goalDto);
     }
 
     //get all courses by goal
