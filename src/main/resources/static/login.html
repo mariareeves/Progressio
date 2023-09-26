@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="main.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Home Page</title>
+</head>
+<body>
+<nav class="bg-white border-gray-200 dark:bg-teal-600">
+    <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
+        <a href="home.html" class="flex items-center">
+            <img src="images/studying.png" class="h-10 mr-3" alt="Progressio Logo"/>
+            <span class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">Progressio</span>
+        </a>
+        <button data-collapse-toggle="navbar-default" type="button"
+                class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
+                aria-controls="navbar-default" aria-expanded="false">
+            <span class="sr-only">Open main menu</span>
+            <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 17 14">
+                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                      d="M1 1h15M1 7h15M1 13h15"/>
+            </svg>
+        </button>
+    </div>
+</nav>
+<div class="container mx-auto mt-0">
+    <div class="grid grid-cols-2 gap-4 h-screen" >
+        <div class="flex justify-center items-center ">
+            <div class="flex flex-col items-center">
+                <img src="images/option2.jpg" class="w-96 h-80" alt="Progressio Logo"/>
+                <p class="text-slate-400 text-center font-normal p-4 mt-2 text-md tracking-wide leading-relaxed">
+                    Progressio is a web application designed specifically for self-taught students who want to manage their personal educational journey. This application allows students to organize their courses, track their progress, and store relevant information about their learning experiences.
+                </p>
+            </div>
+        </div>
+<!--        Login-->
+        <div class="flex justify-center items-center">
+          <div id="loginDiv" class="w-96 p-6 shadow-lg bg-white rounded-md">
+              <h1 class="text-3xl block text-center font-semibold text-teal-700 "><i
+                      class="fa-solid fa-user pr-4"></i>Login
+              </h1>
+              <hr class="mt-3">
+              <form id="login-form">
+                  <div class="mt-3">
+                      <label for="username" class="block text-base mb-2">Username</label>
+                      <input type="text" id="username"
+                             class="border w-full text-base px-2 py-1 focus:outline-none focus:ring-0 focus:border-gray-600" placeholder="Username"/>
+                  </div>
+                  <div class="mt-3">
+                      <label for="password" class="block text-base mb-2">Password</label>
+                      <input type="password" id="password"
+                             class="border w-full text-base px-2 py-1 focus:outline-none focus:ring-0 focus:border-gray-600" placeholder="Password"/>
+                  </div>
+                  <div class="mt-5">
+                      <button type="submit" id="submitBtn"
+                              class="border-2 font-semibold  border-amber-400 bg-amber-400 py-1 w-full rounded-md hover:bg-transparent">Login
+                      </button>
+                  </div>
+              </form>
+              <div class="mt-3 flex justify-center items-center">
+                  <div>
+                      <button type="button" onclick="toggleForms()">Don't have an account yet?
+                          <span class="text-amber-400 font-medium">Create Here</span></button>
+                  </div>
+              </div>
+          </div>
+<!--            Register-->
+            <div id="registerDiv" class="w-96 p-6 shadow-lg bg-white rounded-md" style="display:none" >
+                <h1 class="text-2xl block text-center font-semibold text-teal-700 "><i
+                        class="fa-solid fa-user pr-4"></i>Create an account
+                </h1>
+                <hr class="mt-3">
+                <form id="register-form">
+                    <div class="mt-3">
+                        <label for="register-username" class="block text-base mb-2">Create Username</label>
+                        <input type="text" id="register-username"
+                               class="border w-full text-base px-2 py-1 focus:outline-none focus:ring-0 focus:border-gray-600" placeholder="scotchdog"/>
+                    </div>
+                    <div class="mt-3">
+                        <label for="register-password" class="block text-base mb-2">Create Password</label>
+                        <input type="password" id="register-password"
+                               class="border w-full text-base px-2 py-1 focus:outline-none focus:ring-0 focus:border-gray-600" placeholder="Password"/>
+                    </div>
+                    <div class="mt-5">
+                        <button type="submit" id="registerBtn"
+                                class="border-2 font-semibold  border-amber-400 bg-amber-400 py-1 w-full rounded-md hover:bg-transparent">Login
+                        </button>
+                    </div>
+                </form>
+                <div class="mt-3 flex justify-center items-center">
+                    <div>
+                        <button onclick="toggleForms()" type="button">Already have an account?
+                            <span class="text-amber-400 font-medium">Sign In Here</span></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<script src="./javascript/login.js" type="application/javascript"></script>
+</body>
+</html>

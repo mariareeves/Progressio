@@ -58,6 +58,8 @@ public class CourseServiceImpl implements CourseService {
         courseOptional.ifPresent(course -> {
             course.setCourseName(courseDto.getCourseName());
             course.setPriority(courseDto.getPriority());
+            course.setTotalHours(courseDto.getTotalHours());
+            course.setHoursTaken(courseDto.getHoursTaken());
             course.setInstitutionPlatform(courseDto.getInstitutionPlatform());
             courseRepository.saveAndFlush(course);
         });
