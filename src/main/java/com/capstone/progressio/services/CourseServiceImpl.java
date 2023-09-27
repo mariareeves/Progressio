@@ -77,6 +77,15 @@ public class CourseServiceImpl implements CourseService {
         return Collections.emptyList();
     }
 
+    @Override
+    public Optional<CourseDto> getCourseById(Long courseId){
+        Optional<Course> courseOptional = courseRepository.findById(courseId);
+        if(courseOptional.isPresent()){
+            return Optional.of(new CourseDto(courseOptional.get()));
+        }
+        return Optional.empty();
+    }
+
 
 
 }
