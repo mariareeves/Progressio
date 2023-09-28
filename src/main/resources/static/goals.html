@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible"
+          content="ie=edge">
+    <link rel="stylesheet"
+          href="main.css">
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+          integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+          crossorigin="anonymous"
+          referrerpolicy="no-referrer"/>
+    <title>Add Goals</title>
+</head>
+<body>
+<nav class="bg-white border-gray-200 dark:bg-teal-600">
+    <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
+        <a href="home.html"
+           class="flex items-center">
+            <img src="images/studying.png"
+                 class="h-10 mr-3"
+                 alt="Progressio Logo"/>
+            <span class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">Progressio</span>
+        </a>
+        <button data-collapse-toggle="navbar-default"
+                type="button"
+                class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
+                aria-controls="navbar-default"
+                aria-expanded="false">
+            <span class="sr-only">Open main menu</span>
+            <svg class="w-5 h-5"
+                 aria-hidden="true"
+                 xmlns="http://www.w3.org/2000/svg"
+                 fill="none"
+                 viewBox="0 0 17 14">
+                <path stroke="currentColor"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M1 1h15M1 7h15M1 13h15"/>
+            </svg>
+        </button>
+        <div class="hidden w-full md:block md:w-auto"
+             id="navbar-default">
+            <ul
+                    class="font-medium flex flex-col p-4 md:p-0 mt-4 border border-gray-100 rounded-lg bg-teal-600 md:flex-row md:space-x-8 md:mt-0 md:border-0 md:bg-teal-600 dark:bg-teal-600 dark:border-gray-700">
+                <li>
+                    <a href="#"
+                       class="block py-2 pl-3 pr-4 text-white rounded hover:bg-teal-600 md:hover:bg-transparent md:border-0 md:hover:text-neutral-50 md:p-0 dark:text-white md:dark:hover:text-neutral-50 dark:hover:bg-teal-600 dark:hover:text-white md:dark:hover:bg-transparent capitalize">Home</a>
+                </li>
+                <li>
+                    <a href="#"
+                       class="block py-2 pl-3 pr-4 text-white rounded hover:bg-teal-600 md:hover:bg-transparent md:border-0 md:hover:text-neutral-50 md:p-0 dark:text-white md:dark:hover:text-neutral-50 dark:hover:bg-teal-600 dark:hover:text-white md:dark:hover:bg-transparent capitalize">My
+                        courses</a>
+                </li>
+                <li>
+                    <a href="login.html"
+                       class="block py-2 pl-3 pr-4 text-white rounded hover:bg-teal-600 md:hover:bg-transparent md:border-0 md:hover:text-neutral-50 md:p-0 dark:text-white md:dark:hover:text-neutral-50 dark:hover:bg-teal-600 dark:hover:text-white md:dark:hover:bg-transparent capitalize">Logout</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<div class="grid grid-cols-3 gap-2 container mx-auto py-8">
+    <div>
+        <h2 class="text-xl text-left font-bold dark:text-teal-600 tracking-wide capitalize">Set up your goals</h2>
+    </div>
+    <div class="bg-blue-400">
+        <div>
+            <label for="start">Start date:</label>
+
+            <input type="date" id="start" name="trip-start" value="2018-07-22" min="2018-01-01" max="2018-12-31" />
+        </div>
+        <div>
+            <label for="end">End date:</label>
+
+            <input type="date" id="end" name="trip-start" value="2018-07-22" min="2018-01-01" max="2018-12-31" />
+        </div>
+
+
+    </div>
+    <div >
+        <div class="w-full">
+            <div class="flex-1 h-full w-80 mx-auto">
+                <button type="submit"
+                    class="flex w-full bg-amber-300 m-auto text-lg font-semibold leading-7 text-center text-neutral-100 shadow rounded-md py-2 px-16 hover:bg-amber-200 uppercase">
+                   Save my goals
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<script src="./javascript/createGoals.js"
+        type="application/javascript"></script>
+</body>
+</html>
