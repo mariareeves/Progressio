@@ -64,24 +64,27 @@
         </div>
     </div>
 </nav>
-<div class="grid grid-cols-3 gap-2 container mx-auto py-8">
-    <div>
+
+<form id="goal-form">
+<div class="grid grid-cols-3 gap-2 flex container justify-around items-end mx-auto py-8 border-b-4 border-teal-600">
+    <div >
         <h2 class="text-xl text-left font-bold dark:text-teal-600 tracking-wide capitalize">Set up your goals</h2>
     </div>
-    <div class="bg-blue-400">
+    <div class="flex justify-center mr-2">
         <div>
-            <label for="start">Start date:</label>
-
-            <input type="date" id="start" name="trip-start" value="2018-07-22" min="2018-01-01" max="2018-12-31" />
+            <label for="start" class="font-semibold text-gray-700 mb-3 text-md">Start date:</label>
+            <input type="date" class="border-2 border-neutral-200 px-2 py-1 bg-neutral-50" id="start" name="goalsDate"
+                   min="2023-01-01"
+                   max="2030-12-31" />
         </div>
         <div>
-            <label for="end">End date:</label>
-
-            <input type="date" id="end" name="trip-start" value="2018-07-22" min="2018-01-01" max="2018-12-31" />
+            <label for="end" class="font-semibold text-gray-700 mb-2 text-md">End date:</label>
+            <input type="date" id="end" class="border-2 border-neutral-200 px-2 py-1 bg-neutral-50"
+                   name="goalsDate"
+                   min="2023-01-01" max="2030-12-31" />
         </div>
-
-
     </div>
+
     <div >
         <div class="w-full">
             <div class="flex-1 h-full w-80 mx-auto">
@@ -94,8 +97,21 @@
     </div>
 </div>
 
+<div class="container mx-auto py-8">
+    <label for="message" class="block mb-2 text-md font-medium text-gray-900 dark:text-gray-500 ">What is your main
+        goal for this week?</label>
+    <textarea id="message" rows="4"
+              class="block p-2.5 w-full text-sm border-neutral-500 bg-neutral-50 rounded-lg border focus:ring-amber-500 focus:border-amber-500 dark:bg-neutral-50 dark:border-neutral-200 dark:placeholder-gray-400 dark:text-gray-500 dark:focus:ring-amber-500 dark:focus:border-amber-500" placeholder="Write your goals here..."></textarea>
+<div id="display-courses" class="pt-6">
+    <p class="block my-4 text-md font-medium text-gray-900 dark:text-gray-500 ">These are your courses marked as
+        goals, to edit this list, you can do it on the courses page <a
+                class="px-2 text-sm font-medium text-amber-500 "> >>> Click here <<<.</a></p>
+
+</div>
 
 
+</div>
+</form>
 <script src="./javascript/createGoals.js"
         type="application/javascript"></script>
 </body>

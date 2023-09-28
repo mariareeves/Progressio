@@ -20,6 +20,12 @@ public class CourseController {
         return courseService.getAllCoursesByStudentId(studentId);
     }
 
+    //get courses by goal
+    @GetMapping("/student/goal/{studentId}")
+    public List<CourseDto> getCoursesByGoal(@PathVariable Long studentId){
+        return courseService.getAllCoursesByGoal(studentId);
+    }
+
     //get a note by id
     @GetMapping("/{courseId}")
     public Optional<CourseDto> getNoteById(@PathVariable Long courseId){

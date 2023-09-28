@@ -61,10 +61,10 @@ const displayCourses = (array) => {
     const wishlist = document.getElementById("wishlist-courses");
 
     array.forEach((obj) => {
-        console.log('line 51', obj.status);
+        console.log('line 51', obj.goal);
 
         const cardElement1 = `
-            <div class="block rounded-lg bg-teal-500 shadow-lg dark:bg-teal-500">
+            <div class="block rounded-lg bg-teal-500 shadow-lg dark:bg-teal-500 mb-4">
                           <h5
                                    class="border-neutral-50 px-6 py-3 text-xl font-medium leading-tight dark:text-neutral-50">
                              ${obj.courseName} Course
@@ -80,6 +80,10 @@ const displayCourses = (array) => {
                                <p class="text-base text-neutral-600 dark:text-neutral-200">
                                    Priority ${obj.priority}
                                </p>
+                                <p class="text-base text-neutral-600 dark:text-neutral-200">
+                                   Goal <span class="text-base text-neutral-600 dark:text-neutral-200
+                                   font-semibold">${obj.goal} </span>
+                                </p>
 
                                    <button type="button" href="#" class="flex ml-auto">
                                        <img src="images/edit.png" class="h-8" />

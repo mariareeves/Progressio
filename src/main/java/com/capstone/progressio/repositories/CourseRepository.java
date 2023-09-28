@@ -11,5 +11,5 @@ import java.util.List;
 @Repository
 public interface CourseRepository extends JpaRepository<Course, Long> {
     List<Course> findAllByStudentEquals(Student student);
-    List<Course> findAllByGoalEquals(Goal goal);
+
 }

@@ -38,10 +38,6 @@ public class Goal {
     @JoinColumn(name = "student_id")
     private Student student;
 
-    @OneToMany(mappedBy = "goal", fetch = FetchType.LAZY, cascade = {CascadeType.MERGE, CascadeType.PERSIST})
-    @JsonManagedReference
-    private Set<Course> courseSet = new HashSet<>();
-
 
     public Goal(GoalDto goalDto){
         if(goalDto.getInitialDate() != null){

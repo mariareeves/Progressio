@@ -18,6 +18,7 @@ public class CourseDto implements Serializable {
     private String institutionPlatform;
     private Double totalHours;
     private Double hoursTaken;
+    private Boolean goal;
 
     @Min(1)
     @Max(5)
@@ -52,6 +53,9 @@ public class CourseDto implements Serializable {
 
         if (course.getStatus() != null) {
             this.status = course.getStatus();
+        }
+        if(course.getGoal() != null){
+            this.goal = course.getGoal();
         }
 
     }

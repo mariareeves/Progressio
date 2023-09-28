@@ -30,4 +30,8 @@ public interface CourseService {
 
 
     Optional<CourseDto> getCourseById(Long courseId);
+
+    //get course by goal is true
+    @Transactional
+    List<CourseDto> getAllCoursesByGoal(Long studentId);
 }

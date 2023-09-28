@@ -22,6 +22,8 @@ document.addEventListener("DOMContentLoaded", function() {
     const coursePlatform = document.getElementById("platform-name");
     const courseHours = document.getElementById("course-hours");
     const selectedStatus = document.getElementById("status");
+    const selectedGoals = document.getElementById("goals");
+
 
     // add course
     const handleSubmit = async(evt) => {
@@ -36,13 +38,15 @@ document.addEventListener("DOMContentLoaded", function() {
         console.log("testing curso horas", courseHours.value);
         console.log("testing selectedPriority", selectedPriorityValue);
         console.log("testing status", selectedStatus.value);
+        console.log("testing goal", selectedGoals.value)
 
         let body = {
             courseName: courseName.value,
             institutionPlatform: coursePlatform.value,
             totalHours: courseHours.value,
             priority: selectedPriorityValue,
-            status: selectedStatus.value
+            status: selectedStatus.value,
+            goal: Boolean(selectedGoals.value)
         };
 
         console.log("test body line 28", body)

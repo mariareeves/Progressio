@@ -39,15 +39,14 @@ public class Course {
     @Column
     private String status;
 
+    @Column
+    private Boolean goal;
+
     @ManyToOne
     @JsonBackReference
     @JoinColumn(name = "student_id")
     private Student student;
 
-    @ManyToOne
-    @JsonBackReference
-    @JoinColumn(name = "goal_id")
-    private Goal goal;
 
 
     public Course(CourseDto courseDto){
@@ -73,6 +72,9 @@ public class Course {
 
         if (courseDto.getStatus() != null) {
             this.status = courseDto.getStatus();
+        }
+        if(courseDto.getGoal() != null){
+            this.goal = courseDto.getGoal();
         }
     }
 }
