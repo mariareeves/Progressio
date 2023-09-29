@@ -4,6 +4,7 @@ import com.capstone.progressio.dtos.CourseDto;
 import jakarta.transaction.Transactional;
 
 import java.util.List;
+import java.util.Optional;
 
 public interface CourseService {
     //add a course
@@ -26,4 +27,11 @@ public interface CourseService {
     //find all courses by Student
     @Transactional
     List<CourseDto> getAllCoursesByStudentId(Long studentId);
+
+
+    Optional<CourseDto> getCourseById(Long courseId);
+
+    //get course by goal is true
+    @Transactional
+    List<CourseDto> getAllCoursesByGoal(Long studentId);
 }

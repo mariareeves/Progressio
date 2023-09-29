@@ -9,6 +9,7 @@ import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
@@ -61,6 +62,7 @@ public class CourseServiceImpl implements CourseService {
             course.setTotalHours(courseDto.getTotalHours());
             course.setHoursTaken(courseDto.getHoursTaken());
             course.setInstitutionPlatform(courseDto.getInstitutionPlatform());
+            course.setGoal(courseDto.getGoal());
             courseRepository.saveAndFlush(course);
         });
     }
@@ -77,6 +79,33 @@ public class CourseServiceImpl implements CourseService {
         return Collections.emptyList();
     }
 
+    @Override
+    public Optional<CourseDto> getCourseById(Long courseId){
+        Optional<Course> courseOptional = courseRepository.findById(courseId);
+        if(courseOptional.isPresent()){
+            return Optional.of(new CourseDto(courseOptional.get()));
+        }
+        return Optional.empty();
+    }
+
+    //precisamos de um method para fornecer um endpoint que traga todos os cursos by student id and by isGoal true
+    @Override
+    @Transactional
+    public List<CourseDto> getAllCoursesByGoal(Long studentId){
+        Optional<Student> studentOptional = studentRepository.findById(studentId);
+        if(studentOptional.isPresent()){
+            List<Course> courseList = courseRepository.findAllByStudentEquals(studentOptional.get());
+            //filter courseList to get only the goal is set to true
+            List<Course> filteredList = new ArrayList<>();
+            for(Course course : courseList){
+                if(course.getGoal().equals(true)){
+                    filteredList.add(course);
+                }
+            }
+            return filteredList.stream().map(course -> new CourseDto(course)).collect(Collectors.toList());
+        }
+        return Collections.emptyList();
+    }
 
 
 }

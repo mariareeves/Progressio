@@ -76,32 +76,32 @@ public class GoalServiceImpl implements GoalService {
 
     // Do I need this method ?
     //display all courses by goal id and student id
-    @Override
-    @Transactional
-    public List<CourseDto> getAllCoursesByGoalIdAndStudentId(Long goalId, Long studentId){
-        //Find the student by studentId
-        Optional<Student> studentOptional = studentRepository.findById(studentId);
-        //check if the student exists
-        if(studentOptional.isPresent()){
-            //find the goal by goalId
-            Optional<Goal> goalOptional = goalRepository.findById(goalId);
-
-            //check if the goal exists
-            if(goalOptional.isPresent()){
-                //Retrieve the goal from the optional
-                Goal goal = goalOptional.get();
-
-                //check if the goal is associated with the specified student
-                if(goal.getStudent().equals(studentOptional.get())){
-                    //find all courses associated with the goal
-                    List<Course> courseList = courseRepository.findAllByGoalEquals(goal);
-                    //map the courses to CourseDto objs
-                    return courseList.stream().map(course -> new CourseDto(course)).collect(Collectors.toList());
-                }
-            }
-        }
-
-        return Collections.emptyList();
-    }
+//    @Override
+//    @Transactional
+//    public List<CourseDto> getAllCoursesByGoalIdAndStudentId(Long goalId, Long studentId){
+//        //Find the student by studentId
+//        Optional<Student> studentOptional = studentRepository.findById(studentId);
+//        //check if the student exists
+//        if(studentOptional.isPresent()){
+//            //find the goal by goalId
+//            Optional<Goal> goalOptional = goalRepository.findById(goalId);
+//
+//            //check if the goal exists
+//            if(goalOptional.isPresent()){
+//                //Retrieve the goal from the optional
+//                Goal goal = goalOptional.get();
+//
+//                //check if the goal is associated with the specified student
+//                if(goal.getStudent().equals(studentOptional.get())){
+//                    //find all courses associated with the goal
+//                    List<Course> courseList = courseRepository.findAllByGoalEquals(goal);
+//                    //map the courses to CourseDto objs
+//                    return courseList.stream().map(course -> new CourseDto(course)).collect(Collectors.toList());
+//                }
+//            }
+//        }
+//
+//        return Collections.emptyList();
+//    }
 
 }

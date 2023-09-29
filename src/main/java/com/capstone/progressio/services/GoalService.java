@@ -36,6 +36,8 @@ public interface GoalService {
 
     // Do I need this method ?
     //display all courses by goal id and student id
-    @Transactional
-    List<CourseDto> getAllCoursesByGoalIdAndStudentId(Long goalId, Long studentId);
+//    @Transactional
+//    List<CourseDto> getAllCoursesByGoalIdAndStudentId(Long goalId, Long studentId);
+
+    //f
 }
