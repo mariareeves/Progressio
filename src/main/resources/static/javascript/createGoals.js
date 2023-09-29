@@ -36,7 +36,8 @@ document.addEventListener("DOMContentLoaded", function() {
         let body = {
            initialDate: startDate.value,
            finalDate: endDate.value,
-           goalDescription: goalDescription.value
+           goalsDescription: goalDescription.value,
+
         };
 
         console.log("test body line 28", body)

@@ -25,8 +25,6 @@ const headers = {
 
 //first user message remove when there is a course
 
-
-
 // get notes
 async function getNotes(userId){
     await fetch(`${baseUrl}/student/${userId}`,{
@@ -88,11 +86,12 @@ const displayCourses = (array) => {
                                    <button type="button" href="#" class="flex ml-auto">
                                        <img src="images/edit.png" class="h-8" />
                                    </button>
+                            </div>
             </div>
         `;
 
         const cardElement2 = `
-           <div class="block rounded-lg bg-zinc-400 shadow-lg dark:bg-zinc-400">
+           <div class="block rounded-lg bg-zinc-400 shadow-lg dark:bg-zinc-400 mb-4">
                        <h5
                             class="border-neutral-50 px-6 py-3 text-xl font-medium leading-tight dark:text-neutral-50">
                               ${obj.courseName} Course
@@ -112,6 +111,7 @@ const displayCourses = (array) => {
                                            <button type="button" href="#" class="flex ml-auto">
                                                <img src="images/edit.png" class="h-8" />
                                            </button>
+                                    </div>
             </div>
                 `;
 

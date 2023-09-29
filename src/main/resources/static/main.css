@@ -1150,6 +1150,11 @@ video {
   letter-spacing: 0.025em;
 }
 
+.text-amber-300 {
+  --tw-text-opacity: 1;
+  color: rgb(252 211 77 / var(--tw-text-opacity));
+}
+
 .text-amber-400 {
   --tw-text-opacity: 1;
   color: rgb(251 191 36 / var(--tw-text-opacity));
@@ -1596,6 +1601,11 @@ video {
   .dark\:bg-zinc-400 {
     --tw-bg-opacity: 1;
     background-color: rgb(161 161 170 / var(--tw-bg-opacity));
+  }
+
+  .dark\:text-amber-500 {
+    --tw-text-opacity: 1;
+    color: rgb(245 158 11 / var(--tw-text-opacity));
   }
 
   .dark\:text-gray-400 {
