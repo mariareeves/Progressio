@@ -1,13 +1,5 @@
 console.log("test")
 
-//// Initialization for ES Users
-//import {
-//  Ripple,
-//  initTE,
-//} from "tw-elements";
-//
-//initTE({ Ripple });
-
 //Cookies
 const cookieArr = document.cookie.split("=")
 console.log("testing cookiesArr", cookieArr)
@@ -26,7 +18,7 @@ const headers = {
 //first user message remove when there is a course
 
 // get notes
-async function getNotes(userId){
+async function getCourses(userId){
     await fetch(`${baseUrl}/student/${userId}`,{
         method: "GET",
         headers: headers
@@ -60,59 +52,68 @@ const displayCourses = (array) => {
 
     array.forEach((obj) => {
         console.log('line 51', obj.goal);
+        console.log("testing id", obj.id)
 
         const cardElement1 = `
-            <div class="block rounded-lg bg-teal-500 shadow-lg dark:bg-teal-500 mb-4">
-                          <h5
-                                   class="border-neutral-50 px-6 py-3 text-xl font-medium leading-tight dark:text-neutral-50">
-                             ${obj.courseName} Course
-                           </h5>
-                           <div class="p-6">
-                               <h5
-                                       class="mb-2 text-lg font-medium leading-tight text-neutral-800 dark:text-neutral-50">
-                                   ${obj.institutionPlatform}
-                               </h5>
-                               <p class="mb-2 text-base text-neutral-600 dark:text-neutral-200">
-                                   Total ${obj.totalHours} hours
-                               </p>
-                               <p class="text-base text-neutral-600 dark:text-neutral-200">
-                                   Priority ${obj.priority}
-                               </p>
-                                <p class="text-base text-neutral-600 dark:text-neutral-200">
-                                   Goal <span class="text-base text-neutral-600 dark:text-neutral-200
-                                   font-semibold">${obj.goal} </span>
-                                </p>
+         <div class="block rounded-lg bg-teal-500 shadow-lg dark:bg-teal-500 mb-4">
+                                <h5 id="courseName" class="border-neutral-50 px-6 py-3 text-xl font-medium leading-tight dark:text-neutral-50 flex items-center">
+                                  ${obj.courseName} Course
+                                  <div class="ml-auto">
+                                    <button onclick="handleDelete(${obj.id})">
+                                      <img src="images/trash-bin.png" class="h-8" />
+                                    </button>
+                                  </div>
+                                </h5>
+                                <div class="p-6">
+                                    <h5 id="platform"
+                                            class="mb-2 text-lg font-medium leading-tight text-neutral-800 dark:text-neutral-50">
+                                        ${obj.institutionPlatform}
+                                    </h5>
+                                    <p id="totalHours"  class="mb-2 text-base text-neutral-600 dark:text-neutral-200">
+                                        Total ${obj.totalHours} hours
+                                    </p>
+                                    <p id="priority"  class="text-base text-neutral-600 dark:text-neutral-200">
+                                        Priority ${obj.priority}
+                                    </p>
+                                     <p  id="goal"class="text-base text-neutral-600 dark:text-neutral-200">
+                                        Goal <span class="text-base text-neutral-600 dark:text-neutral-200 font-semibold">${obj.goal} </span>
+                                     </p>
 
-                                   <button type="button" href="#" class="flex ml-auto">
-                                       <img src="images/edit.png" class="h-8" />
-                                   </button>
-                            </div>
-            </div>
+                                        <button type="button" class="flex ml-auto" onclick="toggleModalAndFetchCourse(${obj.id})">
+                                            <img src="images/edit.png" class="h-8" />
+                                        </button>
+                                 </div>
+                 </div>
+
         `;
 
         const cardElement2 = `
-           <div class="block rounded-lg bg-zinc-400 shadow-lg dark:bg-zinc-400 mb-4">
-                       <h5
-                            class="border-neutral-50 px-6 py-3 text-xl font-medium leading-tight dark:text-neutral-50">
-                              ${obj.courseName} Course
-                             </h5>
-                                   <div class="p-6">
-                                       <h5
-                                               class="mb-2 text-lg font-medium leading-tight text-neutral-800 dark:text-neutral-50">
-                                           ${obj.institutionPlatform}
-                                       </h5>
-                                       <p class="mb-2 text-base text-neutral-600 dark:text-neutral-200">
-                                           Total ${obj.totalHours} hours
-                                       </p>
-                                       <p class="text-base text-neutral-600 dark:text-neutral-200">
-                                           Priority ${obj.priority}
+        <div class="block rounded-lg bg-gray-400 shadow-lg dark:bg-gray-500 mb-4">
+                                 <h5 id="courseName"
+                                          class="border-neutral-50 px-6 py-3 text-xl font-medium leading-tight dark:text-neutral-50">
+                                    ${obj.courseName} Course
+                                  </h5>
+                                  <div class="p-6">
+                                      <h5 id="platform"
+                                              class="mb-2 text-lg font-medium leading-tight text-neutral-800 dark:text-neutral-50">
+                                          ${obj.institutionPlatform}
+                                      </h5>
+                                      <p id="totalHours"  class="mb-2 text-base text-neutral-600 dark:text-neutral-200">
+                                          Total ${obj.totalHours} hours
+                                      </p>
+                                      <p id="priority"  class="text-base text-neutral-600 dark:text-neutral-200">
+                                          Priority ${obj.priority}
+                                      </p>
+                                       <p  id="goal"class="text-base text-neutral-600 dark:text-neutral-200">
+                                          Goal <span class="text-base text-neutral-600 dark:text-neutral-200 font-semibold">${obj.goal} </span>
                                        </p>
 
-                                           <button type="button" href="#" class="flex ml-auto">
-                                               <img src="images/edit.png" class="h-8" />
-                                           </button>
-                                    </div>
-            </div>
+                                          <button type="button" class="flex ml-auto" onclick="toggleModal('updateModal')">
+                                              <img src="images/edit.png" class="h-8" />
+                                          </button>
+                                   </div>
+                   </div>
+
                 `;
 
 
@@ -124,4 +125,98 @@ const displayCourses = (array) => {
     });
 }
 
-getNotes(userId)
+getCourses(userId)
+
+//toggle edit button
+function toggleModal(modalId) {
+    const modal = document.getElementById(modalId);
+    modal.classList.toggle('hidden');
+
+    // You can add the event listener for the close button here if needed.
+    const closeButton = document.getElementById("updateModalBtn");
+    closeButton.addEventListener('click', function () {
+        modal.classList.add('hidden');
+    });
+}
+
+function toggleModalAndFetchCourse(courseId) {
+  toggleModal('updateModal');
+  getCourseById(courseId);
+}
+
+////update courses
+
+const courseName = document.getElementById("courseName");
+const platform = document.getElementById("platform");
+const priority = document.getElementById("priority");
+const goal = document.getElementById("goals");
+const updateBtn = document.getElementById("updateBtn")
+const hours = document.getElementById("hours")
+const updateForm = document.getElementById("update-form")
+
+
+async function getCourseById(courseId){
+    await fetch(`${baseUrl}/${courseId}`, {
+        method: "GET",
+        header: headers
+    }).then(res => res.json()).then(data=> {
+        console.log("test data", data)
+        populateModal(data)
+    }).catch(err => console.log(err))
+}
+
+async function handleEdit(courseId) {
+  // Define the body with the properties you want to update.
+  const body = {
+    id: courseId,
+    courseName: courseName.value,
+    institutionPlatform: platform.value,
+    totalHours: hours.value,
+    priority: priority.value,
+    goal: goals.value
+  };
+
+  console.log("testing body update", body);
+
+  await fetch(`${baseUrl}`, {
+    method: "PUT",
+    body: JSON.stringify(body),
+    headers: headers
+  }).catch((err) => console.log(err));
+
+  return getCourses(userId);
+}
+
+const populateModal = (obj) => {
+    console.log('testing modal', obj)
+    console.log('testing', obj.courseName)
+    console.log(obj.institutionPlatform)
+    console.log(obj.totalHours)
+    console.log(obj.priority)
+    console.log(obj.goal)
+
+
+    courseName.value = obj.courseName;
+    platform.value = obj.institutionPlatform;
+    priority.value = obj.priority;
+    hours.value = obj.totalHours;
+    goals.value = obj.goal;
+
+    updateBtn.setAttribute('data-course-id', obj.id)
+}
+
+
+updateBtn.addEventListener('click', (e)=> {
+    let courseId = e.target.getAttribute('data-course-id')
+    handleEdit(courseId)
+})
+
+// delete a course
+async function handleDelete(courseId){
+    await fetch(`${baseUrl}/${courseId}`, {
+        method: "DELETE",
+        headers: headers
+    }).catch(err=> console.log(err))
+
+    return getCourses(userId)
+}
