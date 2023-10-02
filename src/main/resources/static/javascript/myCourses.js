@@ -29,26 +29,36 @@ const displayCourses = (array) => {
 
     console.log("testing array line 41", array)
     // Check if the user has courses and remove the "first-user" div if necessary
-    if (array.length > 0) {
-        const firstUserDiv = document.getElementById("first-user");
-        if (firstUserDiv) {
-            firstUserDiv.remove();
-        }
-    }
-    const displayDiv = document.getElementById("display-courses")
-    displayDiv.className = "grid grid-cols-2 gap-4 border-t-4 border-x-4 container mx-auto py-8"
+     if (array.length > 0) {
+         const firstUserDiv = document.getElementById("first-user");
+         if (firstUserDiv) {
+             firstUserDiv.remove();
+         }
 
-    displayDiv.innerHTML = `
-        <div class="p-6 border-r-4 border-teal-600 " id="doing-courses">
-            <h2 class="py-6 mb-3 text-left font-bold drop-shadow-xl text-gray-500 text-2xl">Doing</h2>
-        </div> <!-- Close "doing-courses" div -->
-        <div class="p-6" id="wishlist-courses">
-            <h2 class="py-6 mb-3 text-left font-bold drop-shadow-xl text-zinc-500 text-2xl">Wishlist</h2>
-        </div> <!-- Close "wishlist-courses" div>
-    `;
+         const displayDiv = document.getElementById("display-courses");
+         displayDiv.className = "grid grid-cols-2 gap-4 border-t-4 border-x-4 container mx-auto py-8"
 
-    const doingList = document.getElementById("doing-courses");
-    const wishlist = document.getElementById("wishlist-courses");
+         // Create the "doing-course" and "wishlist-courses" divs
+         const doingCourseDiv = document.createElement("div");
+         doingCourseDiv.className = "p-6 border-r-4 border-teal-600";
+         doingCourseDiv.id = "doing-courses";
+         doingCourseDiv.innerHTML = `
+             <h2 class="py-6 mb-3 text-left font-bold drop-shadow-xl text-gray-500 text-2xl">Doing</h2>
+         `;
+
+         const wishlistCourseDiv = document.createElement("div");
+         wishlistCourseDiv.className = "p-6";
+         wishlistCourseDiv.id = "wishlist-courses";
+         wishlistCourseDiv.innerHTML = `
+             <h2 class="py-6 mb-3 text-left font-bold drop-shadow-xl text-zinc-500 text-2xl">Wishlist</h2>
+         `;
+
+         displayDiv.appendChild(doingCourseDiv);
+         displayDiv.appendChild(wishlistCourseDiv);
+
+         const doingList = document.getElementById("doing-courses");
+         const wishlist = document.getElementById("wishlist-courses");
+
 
     array.forEach((obj) => {
         console.log('line 51', obj.goal);
@@ -127,7 +137,20 @@ const displayCourses = (array) => {
             wishlist.innerHTML += cardElement2;
         }
     });
-}
+} else {
+          // If there are no courses, you can choose to hide or remove the "doing-course" and "wishlist-courses" divs.
+          const doingCourseDiv = document.getElementById("doing-courses");
+          const wishlistCourseDiv = document.getElementById("wishlist-courses");
+
+          if (doingCourseDiv) {
+              doingCourseDiv.remove();
+          }
+
+          if (wishlistCourseDiv) {
+              wishlistCourseDiv.remove();
+          }
+      }
+ };
 
 getCourses(userId)
 
