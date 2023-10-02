@@ -140,6 +140,7 @@ function toggleModal(modalId) {
     const closeButton = document.getElementById("updateModalBtn");
     closeButton.addEventListener('click', function () {
         modal.classList.add('hidden');
+
     });
 }
 
@@ -182,14 +183,23 @@ async function handleEdit(courseId) {
 
   console.log("testing body update", body);
 
-  await fetch(`${baseUrl}`, {
-    method: "PUT",
-    body: JSON.stringify(body),
-    headers: headers
-  }).catch((err) => console.log(err));
+  try {
+    await fetch(`${baseUrl}`, {
+      method: "PUT",
+      body: JSON.stringify(body),
+      headers: headers
+    });
 
-  return getCourses(userId);
+    // If the update was successful, redirect the user to myCourse.html
+    window.location.href = "myCourses.html";
+    return getCourses(userId);
+
+  } catch (err) {
+    console.log(err);
+    // Handle the error if needed
+  }
 }
+
 
 const populateModal = (obj) => {
     console.log('testing modal', obj)
