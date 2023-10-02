@@ -64,6 +64,7 @@ document.addEventListener("DOMContentLoaded", function() {
             }).catch(err => console.error(err.message))
             if (res.status === 200) {
                   window.location.href = "myCourses.html"
+
             }
         }
     }
