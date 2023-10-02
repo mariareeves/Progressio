@@ -7,12 +7,14 @@
     <meta http-equiv="X-UA-Compatible"
           content="ie=edge">
     <link rel="stylesheet"
-          href="main.css">
-    <link rel="stylesheet"
           href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
           integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
           crossorigin="anonymous"
           referrerpolicy="no-referrer"/>
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/alertify.min.css" />
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/themes/default.min.css" />
+    <link rel="stylesheet"
+          href="main.css">
     <title>Add Goals</title>
 </head>
 <body>
@@ -94,7 +96,7 @@
               class="block p-2.5 w-full text-sm border-neutral-500 bg-neutral-50 rounded-lg border focus:ring-amber-500 focus:border-amber-500 dark:bg-neutral-50 dark:border-neutral-200 dark:placeholder-gray-400 dark:text-gray-500 dark:focus:ring-amber-500 dark:focus:border-amber-500" placeholder="Write your goals here..."></textarea>
 <div id="display-courses" class="pt-6">
     <p class="block my-4 text-md font-medium text-gray-900 dark:text-gray-500 ">These are your courses marked as
-        goals, to edit this list, you can do it on the courses page <a
+        goals, to edit this list, you can do it on the courses page <a href="myCourses.html"
                 class="px-2 text-sm font-medium text-amber-500 "> >>> Click here <<<.</a></p>
 
 </div>
@@ -102,6 +104,8 @@
 
 </div>
 </form>
+
+<script src="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/alertify.min.js"></script>
 <script src="./javascript/createGoals.js"
         type="application/javascript"></script>
 </body>

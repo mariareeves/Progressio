@@ -88,11 +88,15 @@ const displayCourses = (array) => {
         `;
 
         const cardElement2 = `
-        <div class="block rounded-lg bg-gray-400 shadow-lg dark:bg-gray-500 mb-4">
-                                 <h5 id="courseName"
-                                          class="border-neutral-50 px-6 py-3 text-xl font-medium leading-tight dark:text-neutral-50">
-                                    ${obj.courseName} Course
-                                  </h5>
+        <div class="block rounded-lg bg-gray-400 shadow-lg dark:bg-gray-400 mb-4">
+                                   <h5 id="courseName" class="border-neutral-50 px-6 py-3 text-xl font-medium leading-tight dark:text-neutral-50 flex items-center">
+                                                                ${obj.courseName} Course
+                                                                <div class="ml-auto">
+                                                                  <button onclick="handleDelete(${obj.id})">
+                                                                    <img src="images/trash-bin.png" class="h-8" />
+                                                                  </button>
+                                                                </div>
+                                                              </h5>
                                   <div class="p-6">
                                       <h5 id="platform"
                                               class="mb-2 text-lg font-medium leading-tight text-neutral-800 dark:text-neutral-50">
@@ -108,9 +112,9 @@ const displayCourses = (array) => {
                                           Goal <span class="text-base text-neutral-600 dark:text-neutral-200 font-semibold">${obj.goal} </span>
                                        </p>
 
-                                          <button type="button" class="flex ml-auto" onclick="toggleModal('updateModal')">
-                                              <img src="images/edit.png" class="h-8" />
-                                          </button>
+                                              <button type="button" class="flex ml-auto" onclick="toggleModalAndFetchCourse(${obj.id})">
+                                                                                    <img src="images/edit.png" class="h-8" />
+                                              </button>
                                    </div>
                    </div>
 

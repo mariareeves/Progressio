@@ -109,7 +109,7 @@ const displayGoal = (array) => {
                                             Priority ${obj.priority}
                                         </p>
 
-                                        <button type="button" href="#" class="flex ml-auto">
+                                        <button type="button" href="myCourse.html" class="flex ml-auto">
                                             <img src="images/edit.png" class="h-8" />
                                         </button>
                                     </div>

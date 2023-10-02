@@ -63,7 +63,7 @@ document.addEventListener("DOMContentLoaded", function() {
                 headers: headers
             }).catch(err => console.error(err.message))
             if (res.status === 200) {
-                alert("Courses created!")
+                  window.location.href = "myCourses.html"
             }
         }
     }
