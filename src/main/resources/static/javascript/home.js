@@ -66,7 +66,7 @@ const displayGoal = (array) => {
             /// get courses
             const courseUrl = "http://localhost:8080/api/courses"
 
-           async function getNotes(userId) {
+           async function getCourses(userId) {
                await fetch(`${courseUrl}/student/goal/${userId}`, {
                    method: "GET",
                    headers: headers
@@ -125,7 +125,7 @@ const displayGoal = (array) => {
             }
 
 
-            getNotes(userId)
+            getCourses(userId)
 
 }
 
