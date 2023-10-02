@@ -52,7 +52,7 @@ document.addEventListener("DOMContentLoaded", function() {
                 headers: headers
             }).catch(err => console.error(err.message))
             if (res.status === 200) {
-                alert("Goals created!")
+                window.location.href = "home.html"
             }
         }
     }

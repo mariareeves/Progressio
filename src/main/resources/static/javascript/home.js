@@ -66,7 +66,7 @@ const displayGoal = (array) => {
             /// get courses
             const courseUrl = "http://localhost:8080/api/courses"
 
-           async function getNotes(userId) {
+           async function getCourses(userId) {
                await fetch(`${courseUrl}/student/goal/${userId}`, {
                    method: "GET",
                    headers: headers
@@ -109,7 +109,7 @@ const displayGoal = (array) => {
                                             Priority ${obj.priority}
                                         </p>
 
-                                        <button type="button" href="#" class="flex ml-auto">
+                                        <button type="button" href="myCourse.html" class="flex ml-auto">
                                             <img src="images/edit.png" class="h-8" />
                                         </button>
                                     </div>
@@ -125,7 +125,7 @@ const displayGoal = (array) => {
             }
 
 
-            getNotes(userId)
+            getCourses(userId)
 
 }
 

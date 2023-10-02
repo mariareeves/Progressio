@@ -40,13 +40,14 @@ document.addEventListener("DOMContentLoaded", function() {
         console.log("testing status", selectedStatus.value);
         console.log("testing goal", selectedGoals.value)
 
+
         let body = {
             courseName: courseName.value,
             institutionPlatform: coursePlatform.value,
             totalHours: courseHours.value,
             priority: selectedPriorityValue,
             status: selectedStatus.value,
-            goal: Boolean(selectedGoals.value)
+            goal: selectedGoals.value
         };
 
         console.log("test body line 28", body)
@@ -62,7 +63,7 @@ document.addEventListener("DOMContentLoaded", function() {
                 headers: headers
             }).catch(err => console.error(err.message))
             if (res.status === 200) {
-                alert("Courses created!")
+                  window.location.href = "myCourses.html"
             }
         }
     }

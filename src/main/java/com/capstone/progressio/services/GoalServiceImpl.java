@@ -48,16 +48,6 @@ public class GoalServiceImpl implements GoalService {
             goal.setInitialDate(goalDto.getInitialDate());
             goal.setFinalDate(goalDto.getFinalDate());
 
-//            // Convert CourseDto objects to Course entities
-//            Set<Course> courses = new HashSet<>();
-//            for (CourseDto courseDto : courseDtoList) {
-//                Course course = convertCourseDtoToEntity(courseDto);
-//                System.out.println("linha 54" + courseDto.getCourseName());
-//                courses.add(course);
-//            }
-//
-//            // Update courseSet
-//            goal.setCourseSet(courses);
         });
     }
 
